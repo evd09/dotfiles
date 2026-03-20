@@ -1,0 +1,146 @@
+/* --- RESET & GLOBALS --- */
+* {
+	font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+	font-size: 13px;
+	border: none;
+	border-radius: 0;
+}
+
+
+/* --- The MAIN BAR --- */
+window#waybar {
+	background: transparent;
+}
+
+
+/* --- WORKSPACES --- */ 
+#workspaces button {
+	padding: 0 5px;
+	color: #ffffff;
+}
+
+#workspaces button label {
+	font-family: "JetBrainsMono Nerd Font";
+	font-size: 13px;
+	color: #ffffff;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 204, 0, 0.1);
+    color: #ffcc00;
+    box-shadow: none;
+    border: none;
+    border-radius: 20px;
+}
+
+#workspaces button.active {
+    color: #ffcc00;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #ff6600;
+}
+
+#workspaces button.focused {
+    background: rgba(255, 204, 0, 0.1);
+    color: #ffcc00;
+    border-radius: 20px;
+}
+
+/* --- MODULES --- */
+#custom-launcher,
+#mpris,
+#temperature,
+#clock,
+#workspaces,
+#cpu,
+#memory,
+#backlight,
+#pulseaudio,
+#network,
+#tray,
+#custom-power,
+#bluetooth,
+#battery {
+    background-color: rgba(26, 27, 38, 0.85);
+    border-radius: 20px;
+    padding: 2px 15px;
+    margin: 0 4px;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* --- SPECIFIC ACCENTS --- */
+#clock {
+	color: #ffcc00;
+	font-weight: bold;
+}
+
+#battery.charging { 
+	color: #ffcc00;
+}
+
+#battery.critical:not(.charging) {
+	background-color: #ff6600;
+	color: #ffffff;
+}
+
+@keyframes blink {
+	to {
+		background-color: #ff6600;
+		color: #1e1e1e;
+	}
+}
+
+/* --- PULSE for CPU/RAM --- */
+#cpu.warning, #memory.warning {
+	color: #ffcc00;
+}
+
+#cpu.critical, #memory.critical {
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#network {
+	padding: 0 15px; /* Extra breathing room for the IP text */
+	color: #81c8be;
+}
+
+#tray {
+    background-color: rgba(26, 27, 38, 0.85);
+    border-radius: 20px;
+    padding: 2px 15px;
+    margin: 0 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#custom-power {
+    background-color: rgba(26, 27, 38, 0.85);
+    border-radius: 20px;
+    padding: 2px 15px;
+    margin: 0 4px 0 0;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#custom-notification {
+    background-color: rgba(26, 27, 38, 0.85);
+    border-radius: 20px;
+    padding: 2px 15px;
+    margin: 0 4px;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#bluetooth {
+    background-color: rgba(26, 27, 38, 0.85);
+    border-radius: 20px;
+    padding: 2px 15px;
+    margin: 0 4px;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}

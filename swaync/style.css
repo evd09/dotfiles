@@ -1,0 +1,44 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+}
+
+.notification-row {
+    outline: none;
+    margin: 4px;
+}
+
+.notification {
+    background: rgba(26, 27, 38, 0.95);
+    border: 1px solid rgba(255, 204, 0, 0.5);
+    border-radius: 12px;
+    padding: 8px;
+    color: #ffffff;
+}
+
+.notification-content {
+    padding: 4px;
+}
+
+.summary {
+    font-weight: bold;
+    color: #ffcc00;
+    font-size: 14px;
+}
+
+.body {
+    color: #c0caf5;
+    font-size: 13px;
+}
+
+.app-icon {
+    -gtk-icon-size: 32px;
+}
+
+.close-button {
+    background: rgba(255, 102, 0, 0.8);
+    border-radius: 50%;
+    color: #ffffff;
+    min-width: 16px;
+    min-height: 16px;
+}

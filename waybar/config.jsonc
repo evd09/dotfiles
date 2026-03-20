@@ -1,0 +1,112 @@
+{
+	"layer": "top",
+	"position": "top",
+	"margin-top": 10,
+	"margin-left": 10,
+	"margin-right": 10,
+	"spacing": 8, 
+
+	"modules-left": ["custom/launcher", "mpris", "temperature", "bluetooth"],
+	"modules-center": ["clock", "hyprland/workspaces"],
+	"modules-right": ["cpu", "memory", "backlight", "pulseaudio", "network", "tray", "custom/notification", "battery", "custom/power"],
+	
+	"cpu": { "format": " {usage}%" },
+	"memory": { "format": " {}%" },
+	"backlight": {
+		 "format": "{icon} {percent}%",
+		 "format-icons": ["󰃞", "󰃟", "󰃠"]
+	},
+
+	"mpris": {
+		"format": "{status_icon} {title}",
+		"status-icons": { "playing": "", "paused": "" }
+	},
+
+	"custom/launcher": {
+		"format": "",
+		"on-click": "rofi -show drun"
+	},
+
+	"battery": {
+		"bat": "BAT0",
+		"states": { "warning": 30, "critical": 15 },
+		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capacity}%", 
+		"format-icons": ["", "", "", "", ""]
+	},
+	
+	"network": {
+		"format-wifi": "  {essid}",
+		"format-ethernet": " ",
+		"format-disconnected": "⚠ Disconnected",
+		"tooltip-format": "{ifname} | IP: {ipaddr} | GW: {gwaddr}"
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": "  Muted",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", "", ""]
+		},	
+		"on-click": "pavucontrol"
+	 },
+	
+	"clock": {
+		"format": "{:%I:%M %p}",
+		"tooltip-format": "{:%A, %B %d %Y}"
+	},
+	"hyprland/workspaces": {
+	"format": "{id} {windows}",
+	"window-rewrite-default": "?",
+	"window-rewrite": {
+		"class<kitty>": "󰄛",
+		"class<firefox>": "󰈹",
+		"class<discord>": "󰙯",
+		"class<code>": "󰨞",
+		"class<spotify>": "󰓇",
+		"class<steam>": "󰓓",
+		"class<thunar>": "󰉋",
+		"class<telegram-desktop>": "󰔁"
+		}
+	},
+
+	"tray": {
+		"spacing": 10
+	},	
+
+	"custom/power": {
+	"format": "⏻",
+	"on-click": "wlogout"
+	},
+
+	"custom/notification": {
+	"exec": "swaync-client -swb",
+	"return-type": "json",
+	"format": "{icon}",
+	"format-icons": {
+		"notification": "󰂚",
+		"none": "󰂜",
+		"dnd-notification": "󰂛",
+		"dnd-none": "󰂛"
+	},
+	"on-click": "swaync-client -t -sw",
+	"on-click-right": "swaync-client -d -sw",
+	"escape": true
+	},
+	"bluetooth": {
+		"format": "󰂯 {status}",
+		"format-connected": "󰂱 {device_alias}",
+	    "format-connected-battery": "󰂱 {device_alias} {device_battery_percentage}%",
+	    "tooltip-format": "{controller_alias}\t{controller_address}",
+	    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	    "on-click": "blueman-manager"
+	}
+
+}
