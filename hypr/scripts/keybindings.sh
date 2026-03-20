@@ -22,6 +22,8 @@ Space + fg         → Nvim Live Grep
 Space + w          → Nvim Save
 Space + q          → Nvim Quit"
 
+~/dotfiles/sync.sh → Sync Dotfiles to GitHub
+
 echo "$bindings" | rofi -dmenu \
     -p "Keybindings" \
     -theme-str 'window {width: 600px;}' \
