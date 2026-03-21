@@ -22,3 +22,9 @@ map("n", "<leader>q", ":q<CR>", { desc = "Quit" })
 
 -- Clear search highlight
 map("n", "<leader>h", ":nohlsearch<CR>", { desc = "Clear highlights" })
+
+-- System clipboard copy/paste
+map("v", "<C-c>", '"+y', { desc = "Copy to clipboard" })
+map("n", "<C-v>", '"+p', { desc = "Paste from clipboard" })
+map("i", "<C-v>", '<C-r>+', { desc = "Paste from clipboard" })
+map("v", "<C-x>", '"+d', { desc = "Cut to clipboard" })
