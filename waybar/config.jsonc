@@ -10,17 +10,22 @@
 	"modules-center": ["clock", "hyprland/workspaces"],
 	"modules-right": ["cpu", "memory", "backlight", "pulseaudio", "network", "tray", "custom/notification", "battery", "custom/power"],
 	
-	"cpu": { "format": " {usage}%" },
-	"memory": { "format": " {}%" },
-	"backlight": {
+	"cpu": { "format": " {usage}%", "interval": 5 },
+	"memory": { "format": " {}%", "interval": 5 },
+	"temperature": { "interval": 10 },
+  "backlight": {
 		 "format": "{icon} {percent}%",
 		 "format-icons": ["󰃞", "󰃟", "󰃠"]
 	},
 
 	"mpris": {
 		"format": "{status_icon} {title}",
-		"status-icons": { "playing": "", "paused": "" }
-	},
+		"status-icons": { "playing": "", "paused": "" },
+    "max-length": 40,
+    "dynamic-order": true,
+    "escape": true,
+    "ellipsis": "..."
+  },
 
 	"custom/launcher": {
 		"format": "",
@@ -29,21 +34,26 @@
 
 	"battery": {
 		"bat": "BAT0",
+    "interval": 30,
 		"states": { "warning": 30, "critical": 15 },
 		"format": "{icon} {capacity}%",
 		"format-charging": " {capacity}%",
 		"format-plugged": " {capacity}%", 
-		"format-icons": ["", "", "", "", ""]
-	},
-	
-	"network": {
-		"format-wifi": "  {essid}",
-		"format-ethernet": " ",
-		"format-disconnected": "⚠ Disconnected",
-		"tooltip-format": "{ifname} | IP: {ipaddr} | GW: {gwaddr}"
+		"format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{timeTo} - {power}W"
 	},
 
-	"pulseaudio": {
+
+"network": {
+    "interface": "wlan0",
+    "interval": 10,
+    "format-wifi": "{essid} ↑{bandwidthUpBits} ↓{bandwidthDownBits}",
+    "format-ethernet": " {ifname}",
+    "format-disconnected": "⚠ Disconnected",
+    "tooltip-format": "{ifname} | IP: {ipaddr} | GW: {gwaddr} | Signal: {signalStrength}%"
+},
+
+"pulseaudio": {
 		"format": "{icon} {volume}%",
 		"format-muted": "  Muted",
 		"format-icons": {
@@ -60,10 +70,12 @@
 	
 	"clock": {
 		"format": "{:%I:%M %p}",
-		"tooltip-format": "{:%A, %B %d %Y}"
+    "format-alt": "{:%a %b %d}",
+		"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
 	},
 	"hyprland/workspaces": {
 	"format": "{id} {windows}",
+  "ipc": true,
 	"window-rewrite-default": "?",
 	"window-rewrite": {
 		"class<kitty>": "󰄛",
@@ -87,15 +99,17 @@
 	},
 
 	"custom/notification": {
-	"exec": "swaync-client -swb",
+	"exec": "sleep 1 & swaync-client -swb",
 	"return-type": "json",
 	"format": "{icon}",
 	"format-icons": {
 		"notification": "󰂚",
 		"none": "󰂜",
 		"dnd-notification": "󰂛",
-		"dnd-none": "󰂛"
-	},
+		"dnd-none": "󰂛",
+    "inhibited-notification": "󰂛",
+    "inhibited-none": "󰂜"
+  },
 	"on-click": "swaync-client -t -sw",
 	"on-click-right": "swaync-client -d -sw",
 	"escape": true
